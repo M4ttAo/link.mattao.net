@@ -3,9 +3,13 @@ links:
     slug: youtube
     icon: youtube.svg
     category: social
+  
+  - name: Twitch
+    slug: twitch
+    icon: twitch.svg
+    category: social
 
   - name: GitHub
     slug: github
     icon: github.svg
     category: development
-
