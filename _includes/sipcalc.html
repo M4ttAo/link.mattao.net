@@ -8,12 +8,13 @@
   </div>
   <label class="tool-field sip-input-field">
     <span>IPv4 / CIDR</span>
-    <input type="text" inputmode="decimal" value="" placeholder="192.168.1.10/24" data-sip-input aria-describedby="sip-validation">
+    <input type="text" inputmode="url" value="" placeholder="192.168.1.10/24" data-sip-input aria-describedby="sip-validation">
   </label>
   <p class="tool-validation" id="sip-validation" data-sip-validation role="status"></p>
   <dl class="sip-results" data-sip-results>
     <div><dt>Network</dt><dd data-sip="network">—</dd><button type="button" class="result-copy" data-sip-copy="network" aria-label="Copy network">⧉</button></div>
     <div><dt>IP Address</dt><dd data-sip="ip">—</dd></div>
+    <div><dt>CIDR Prefix</dt><dd data-sip="prefix">—</dd></div>
     <div><dt>Subnet Mask</dt><dd data-sip="mask">—</dd><button type="button" class="result-copy" data-sip-copy="mask" aria-label="Copy subnet mask">⧉</button></div>
     <div><dt>Wildcard</dt><dd data-sip="wildcard">—</dd></div>
     <div><dt>Broadcast</dt><dd data-sip="broadcast">—</dd><button type="button" class="result-copy" data-sip-copy="broadcast" aria-label="Copy broadcast address">⧉</button></div>

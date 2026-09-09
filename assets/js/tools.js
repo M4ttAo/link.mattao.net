@@ -1,10 +1,6 @@
 (function () {
   "use strict";
 
-  function clamp(value, min, max) {
-    return Math.min(max, Math.max(min, value));
-  }
-
   function componentToHex(value) {
     return Math.round(value).toString(16).padStart(2, "0");
   }
@@ -49,14 +45,6 @@
 
   function hslToRgb(hsl) {
     var h = hsl.h / 360, s = hsl.s / 100, l = hsl.l / 100;
-    var hue = function (t) {
-      if (t < 0) t += 1;
-      if (t > 1) t -= 1;
-      if (t < 1 / 6) return l + (s * (1 - Math.abs(2 * l - 1)) * 6 * t - 0) / 2;
-      if (t < 1 / 2) return l + s * (1 - Math.abs(2 * l - 1)) / 2;
-      if (t < 2 / 3) return l + s * (1 - Math.abs(2 * l - 1)) * (2 / 3 - t) * 3 / 2;
-      return l - s * (1 - Math.abs(2 * l - 1)) / 2;
-    };
     if (!s) return { r: l * 255, g: l * 255, b: l * 255 };
     var q = l < .5 ? l * (1 + s) : l + s - l * s;
     var p = 2 * l - q;
@@ -108,14 +96,16 @@
       tool.querySelector("[data-color-lightness]").value = hsl.l;
       tool.querySelector("[data-color-saturation]").value = hsl.s;
       tool.querySelector("[data-color-alpha]").value = state.a * 100;
-      tool.querySelectorAll("[data-shade-palette] button").forEach(function (swatch) { swatch.remove(); });
+      var palette = tool.querySelector("[data-shade-palette]");
+      if (!palette) return;
+      palette.querySelectorAll("button").forEach(function (swatch) { swatch.remove(); });
       [50, 100, 200, 300, 400, 500, 600, 700, 800, 900].forEach(function (weight) {
         var mix = weight <= 500 ? (500 - weight) / 450 : (weight - 500) / 400;
         var shade = weight <= 500 ? { r: state.rgb.r + (255 - state.rgb.r) * mix, g: state.rgb.g + (255 - state.rgb.g) * mix, b: state.rgb.b + (255 - state.rgb.b) * mix } : { r: state.rgb.r * (1 - mix), g: state.rgb.g * (1 - mix), b: state.rgb.b * (1 - mix) };
         var button = document.createElement("button");
         button.type = "button"; button.className = "shade-swatch"; button.style.backgroundColor = rgbToHex(shade); button.dataset.shade = rgbToHex(shade).toUpperCase(); button.setAttribute("aria-label", "Copy " + button.dataset.shade);
         button.innerHTML = "<span>" + weight + "</span><small>" + button.dataset.shade + "</small>";
-        tool.querySelector("[data-shade-palette]").appendChild(button);
+        palette.appendChild(button);
       });
     }
     function setRgb(rgb) { state.rgb = rgb; validation.textContent = ""; hexInput.classList.remove("is-invalid"); render(); }
@@ -140,9 +130,9 @@
   function setupSipCalc() {
     var tool = document.querySelector(".sipcalc"); if (!tool) return;
     var input = tool.querySelector("[data-sip-input]"), validation = tool.querySelector("[data-sip-validation]"), values = {};
-    function render() { var parsed = parseCidr(input.value); if (!parsed) { validation.textContent = input.value ? "Enter a valid IPv4 CIDR" : ""; tool.querySelectorAll("[data-sip]").forEach(function (item) { item.textContent = "—"; }); return; } validation.textContent = ""; var mask = parsed.prefix === 0 ? 0 : (0xffffffff << (32 - parsed.prefix)) >>> 0, network = (parsed.ip & mask) >>> 0, broadcast = (network | (~mask >>> 0)) >>> 0, total = Math.pow(2, 32 - parsed.prefix), first = network, last = broadcast, usable = total - 2;
+    function render() { var parsed = parseCidr(input.value); input.classList.toggle("is-invalid", Boolean(input.value) && !parsed); if (!parsed) { validation.textContent = input.value ? "Enter a valid IPv4 CIDR" : ""; tool.querySelectorAll("[data-sip]").forEach(function (item) { item.textContent = "—"; }); tool.querySelectorAll("[data-sip-copy]").forEach(function (button) { delete button.dataset.copyValue; }); return; } validation.textContent = ""; var mask = parsed.prefix === 0 ? 0 : (0xffffffff << (32 - parsed.prefix)) >>> 0, network = (parsed.ip & mask) >>> 0, broadcast = (network | (~mask >>> 0)) >>> 0, total = Math.pow(2, 32 - parsed.prefix), first = network, last = broadcast, usable = total - 2;
       if (parsed.prefix === 31) { usable = 2; } else if (parsed.prefix === 32) { first = network; last = network; usable = 1; }
-      values = { network: intToIp(network) + "/" + parsed.prefix, ip: intToIp(parsed.ip), mask: intToIp(mask), wildcard: intToIp((~mask) >>> 0), broadcast: parsed.prefix === 32 ? "N/A (host route)" : intToIp(broadcast), first: intToIp(first), last: intToIp(last), total: total.toLocaleString(), usable: usable.toLocaleString() };
+      values = { network: intToIp(network) + "/" + parsed.prefix, ip: intToIp(parsed.ip), prefix: "/" + parsed.prefix, mask: intToIp(mask), wildcard: intToIp((~mask) >>> 0), broadcast: parsed.prefix === 32 ? "N/A (host route)" : intToIp(broadcast), first: intToIp(first), last: intToIp(last), total: total.toLocaleString(), usable: usable.toLocaleString() };
       tool.querySelectorAll("[data-sip]").forEach(function (item) { item.textContent = values[item.dataset.sip]; }); tool.querySelectorAll("[data-sip-copy]").forEach(function (button) { button.dataset.copyValue = values[button.dataset.sipCopy]; });
     }
     input.addEventListener("input", render); tool.addEventListener("click", function (event) { var button = event.target.closest("[data-sip-copy]"); if (button && button.dataset.copyValue) copyValue(button.dataset.copyValue, button); }); render();

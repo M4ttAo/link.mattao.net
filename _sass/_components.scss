@@ -63,6 +63,7 @@ h2 { margin: 0; color: var(--text); font-size: .75rem; font-weight: 700; letter-
 .tool-field input[type="color"] { padding: .2rem; cursor: pointer; }
 .tool-field input:focus-visible { border-color: var(--accent); outline: 2px solid var(--accent-soft); outline-offset: 1px; }
 .tool-field input.is-invalid { border-color: var(--accent); }
+.tool-field input.is-invalid:focus-visible { outline-color: var(--accent); }
 .tool-validation { min-height: 1rem; margin: .4rem 0 0; color: var(--accent-bright); font: .65rem var(--font-mono); }
 .format-tabs { display: flex; gap: .2rem; margin-top: .55rem; overflow-x: auto; border-bottom: 1px solid var(--border); }
 .format-tab { padding: .5rem .35rem; border: 0; border-bottom: 1px solid transparent; background: transparent; color: var(--faint); cursor: pointer; font: .61rem var(--font-mono); }
