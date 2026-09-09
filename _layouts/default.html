@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="{{ site.lang }}">
+  {% include head.html %}
+  <body>
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+
+    <main class="page-shell">
+      {{ content }}
+    </main>
+
+    <footer class="site-footer">
+      <span>© {{ 'now' | date: "%Y" }} {{ site.data.profile.name }}</span>
+      <span class="footer-mark">made with intent <span aria-hidden="true">·</span> matt ao</span>
+    </footer>
+  </body>
+</html>

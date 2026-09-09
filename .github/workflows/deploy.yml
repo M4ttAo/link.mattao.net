@@ -1,0 +1,33 @@
+name: Sync deploy branch
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: link-deploy
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout commit
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Prepare deploy branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -C deploy "$GITHUB_SHA"
+
+      - name: Push deploy branch
+        run: git push origin deploy --force

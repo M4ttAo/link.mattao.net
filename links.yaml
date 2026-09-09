@@ -1,0 +1,11 @@
+links:
+  - name: YouTube
+    slug: youtube
+    icon: youtube.svg
+    category: social
+
+  - name: GitHub
+    slug: github
+    icon: github.svg
+    category: development
+

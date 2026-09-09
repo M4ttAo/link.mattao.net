@@ -1,0 +1,5 @@
+<a class="link-card" href="{{ '/' | append: include.link.slug | relative_url }}">
+  {% include link-icon.html link=include.link %}
+  <span class="link-card-name">{{ include.link.name }}</span>
+  <span class="link-arrow" aria-hidden="true">↗</span>
+</a>

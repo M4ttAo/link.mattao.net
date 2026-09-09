@@ -1,0 +1,19 @@
+title: "MattAo Links"
+description: "Links, projects & stuff."
+url: "https://link.mattao.net"
+lang: "en"
+
+markdown: kramdown
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+plugins:
+  - jekyll-seo-tag
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
