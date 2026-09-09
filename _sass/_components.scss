@@ -4,7 +4,7 @@ h1 { margin: 0; font-size: clamp(3.8rem, 9vw, 6.8rem); font-weight: 800; letter-
 .intro p { max-width: 25rem; margin: 1.35rem 0 0; color: var(--muted); font-size: clamp(.95rem, 2vw, 1.1rem); letter-spacing: -.02em; }
 .intro-line { display: block; width: 3rem; height: 1px; margin-top: 1.7rem; background: var(--accent-bright); }
 .links-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1rem; }
-.category-panel { position: relative; grid-column: span 7; min-height: 14rem; overflow: hidden; padding: 1.35rem; border: 1px solid var(--border); border-radius: var(--radius); background: linear-gradient(135deg, rgba(16,24,41,.72), var(--surface) 60%); box-shadow: 0 22px 65px rgba(0,0,0,.28), inset 0 1px rgba(255,255,255,.045); backdrop-filter: blur(20px); }
+.category-panel { position: relative; grid-column: span 7; min-height: 14rem; overflow: hidden; padding: 1.35rem; border: 1px solid var(--border); border-radius: var(--radius); background: linear-gradient(145deg, rgba(12,17,27,.78), rgba(8,12,20,.62)); box-shadow: 0 18px 50px rgba(0,0,0,.24), inset 0 1px rgba(255,255,255,.03); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); }
 .category-panel::after { position: absolute; top: 0; right: 1.35rem; width: 4rem; height: 1px; background: linear-gradient(90deg, transparent, rgba(190,18,60,.75)); content: ""; }
 .category-panel:nth-child(3n + 2) { grid-column: span 5; }
 .category-panel:nth-child(3n) { grid-column: span 5; }
