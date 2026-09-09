@@ -5,6 +5,8 @@ description: "Links, projects & stuff."
 ---
 
 <div class="index-layout">
+  {% include f1-widget.html %}
+
   <header class="intro">
     <h1>{{ site.data.profile.name }}</h1>
     <p>{{ site.data.profile.bio }}</p>
@@ -31,6 +33,5 @@ description: "Links, projects & stuff."
 
     {% include color-tool.html %}
     {% include sipcalc.html %}
-    {% include f1-widget.html %}
   </div>
 </div>
