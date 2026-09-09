@@ -14,9 +14,14 @@ links:
       - name: Privnote
         slug: privnote
         icon: privnote.svg
+
       - name: Json Formatter
         slug: jsonform
         icon: jsonform.svg
+
+      - name: Coolors Co
+        slug: coolors
+        icon: coolors.svg
 
   - category: Development
     items:
