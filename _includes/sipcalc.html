@@ -1,0 +1,25 @@
+<section class="utility-widget sipcalc" aria-labelledby="sipcalc-title">
+  <div class="utility-heading">
+    <div>
+      <span class="utility-kicker">Utility / 02</span>
+      <h2 id="sipcalc-title">SIPCalc</h2>
+    </div>
+    <span class="utility-status" aria-hidden="true">●</span>
+  </div>
+  <label class="tool-field sip-input-field">
+    <span>IPv4 / CIDR</span>
+    <input type="text" inputmode="decimal" value="" placeholder="192.168.1.10/24" data-sip-input aria-describedby="sip-validation">
+  </label>
+  <p class="tool-validation" id="sip-validation" data-sip-validation role="status"></p>
+  <dl class="sip-results" data-sip-results>
+    <div><dt>Network</dt><dd data-sip="network">—</dd><button type="button" class="result-copy" data-sip-copy="network" aria-label="Copy network">⧉</button></div>
+    <div><dt>IP Address</dt><dd data-sip="ip">—</dd></div>
+    <div><dt>Subnet Mask</dt><dd data-sip="mask">—</dd><button type="button" class="result-copy" data-sip-copy="mask" aria-label="Copy subnet mask">⧉</button></div>
+    <div><dt>Wildcard</dt><dd data-sip="wildcard">—</dd></div>
+    <div><dt>Broadcast</dt><dd data-sip="broadcast">—</dd><button type="button" class="result-copy" data-sip-copy="broadcast" aria-label="Copy broadcast address">⧉</button></div>
+    <div><dt>First Host</dt><dd data-sip="first">—</dd><button type="button" class="result-copy" data-sip-copy="first" aria-label="Copy first host">⧉</button></div>
+    <div><dt>Last Host</dt><dd data-sip="last">—</dd><button type="button" class="result-copy" data-sip-copy="last" aria-label="Copy last host">⧉</button></div>
+    <div><dt>Total Addresses</dt><dd data-sip="total">—</dd></div>
+    <div><dt>Usable Hosts</dt><dd data-sip="usable">—</dd></div>
+  </dl>
+</section>

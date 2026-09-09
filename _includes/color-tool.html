@@ -1,0 +1,46 @@
+<section class="utility-widget color-tool" aria-labelledby="color-tool-title">
+  <div class="utility-heading">
+    <div>
+      <span class="utility-kicker">Utility / 01</span>
+      <h2 id="color-tool-title">Color Tool</h2>
+    </div>
+    <span class="utility-status" aria-hidden="true">●</span>
+  </div>
+
+  <div class="color-preview" data-color-preview>
+    <span class="color-preview-value" data-color-preview-value>#B21730</span>
+  </div>
+
+  <div class="color-input-row">
+    <label class="tool-field color-picker-field">
+      <span>Color</span>
+      <input type="color" value="#b21730" data-color-picker aria-label="Choose color">
+    </label>
+    <label class="tool-field hex-field">
+      <span>HEX</span>
+      <input type="text" value="#B21730" maxlength="7" spellcheck="false" data-color-hex aria-describedby="color-validation">
+    </label>
+  </div>
+  <p class="tool-validation" id="color-validation" data-color-validation role="status"></p>
+
+  <div class="format-tabs" role="tablist" aria-label="Color format">
+    <button type="button" class="format-tab is-active" data-color-format="hex" role="tab" aria-selected="true">HEX</button>
+    <button type="button" class="format-tab" data-color-format="rgb" role="tab" aria-selected="false">RGB</button>
+    <button type="button" class="format-tab" data-color-format="hsl" role="tab" aria-selected="false">HSL</button>
+    <button type="button" class="format-tab" data-color-format="hsv" role="tab" aria-selected="false">HSV</button>
+    <button type="button" class="format-tab" data-color-format="cmyk" role="tab" aria-selected="false">CMYK</button>
+    <button type="button" class="format-tab" data-color-format="bin" role="tab" aria-selected="false">BIN</button>
+  </div>
+  <div class="color-output-row">
+    <output class="color-output" data-color-output>#B21730</output>
+    <button class="tool-copy" type="button" data-color-copy aria-label="Copy color value"><span data-color-copy-label>Copy</span></button>
+  </div>
+
+  <div class="color-sliders">
+    <label class="slider-field"><span>Lightness <output data-slider-value="lightness">42%</output></span><input type="range" min="0" max="100" value="42" data-color-lightness></label>
+    <label class="slider-field"><span>Saturation <output data-slider-value="saturation">81%</output></span><input type="range" min="0" max="100" value="81" data-color-saturation></label>
+    <label class="slider-field"><span>Opacity <output data-slider-value="alpha">100%</output></span><input type="range" min="0" max="100" value="100" data-color-alpha></label>
+  </div>
+
+  <div class="shade-palette" data-shade-palette aria-label="Generated color shades"></div>
+</section>

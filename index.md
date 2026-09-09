@@ -28,5 +28,8 @@ description: "Links, projects & stuff."
         </div>
       </section>
     {% endfor %}
+
+    {% include color-tool.html %}
+    {% include sipcalc.html %}
   </div>
 </div>
