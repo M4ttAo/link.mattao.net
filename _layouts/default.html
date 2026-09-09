@@ -9,11 +9,20 @@
   <main class="page-shell">
     <div class="site-toolbar">
       <div class="layout-toggle" role="group" aria-label="Layout view">
-        <button class="layout-option is-active" type="button" data-layout-option="grid" aria-label="Switch to grid view" aria-pressed="true" title="Grid view">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        <button class="layout-option is-active" type="button" data-layout-option="grid" aria-label="Switch to grid view"
+          aria-pressed="true" title="Grid view">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="3" width="7" height="7" rx="1" />
+            <rect x="14" y="3" width="7" height="7" rx="1" />
+            <rect x="3" y="14" width="7" height="7" rx="1" />
+            <rect x="14" y="14" width="7" height="7" rx="1" />
+          </svg>
         </button>
-        <button class="layout-option" type="button" data-layout-option="list" aria-label="Switch to list view" aria-pressed="false" title="List view">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h14M5 12h14M5 18h14"/></svg>
+        <button class="layout-option" type="button" data-layout-option="list" aria-label="Switch to list view"
+          aria-pressed="false" title="List view">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 6h14M5 12h14M5 18h14" />
+          </svg>
         </button>
       </div>
       <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme">
@@ -26,10 +35,10 @@
 
   <footer class="site-footer">
     <span>© {{ 'now' | date: "%Y" }} {{ site.data.profile.name }}</span>
-    <span class="footer-mark">made with intent <span aria-hidden="true">·</span> mattao</span>
   </footer>
   <script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
   <script src="{{ '/assets/js/tools.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/f1.js' | relative_url }}" defer></script>
 </body>
 
 </html>

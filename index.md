@@ -31,5 +31,6 @@ description: "Links, projects & stuff."
 
     {% include color-tool.html %}
     {% include sipcalc.html %}
+    {% include f1-widget.html %}
   </div>
 </div>
