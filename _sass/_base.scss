@@ -12,6 +12,17 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+body::before {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  content: "";
+  background:
+    linear-gradient(115deg, rgba(7, 12, 25, .78), rgba(7, 12, 25, .54) 48%, rgba(7, 12, 25, .76)),
+    url("/assets/images/background.jpg") center / cover no-repeat;
+  pointer-events: none;
+}
+
 .page-shell, .site-footer { position: relative; z-index: 1; }
 .page-shell { width: min(100% - 3rem, var(--measure)); margin: 0 auto; padding: clamp(3rem, 8vw, 7rem) 0 4rem; }
 .ambient { position: fixed; width: 25rem; height: 25rem; border-radius: 50%; filter: blur(100px); opacity: .15; pointer-events: none; }

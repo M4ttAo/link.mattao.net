@@ -1,15 +1,16 @@
 links:
-  - name: YouTube
-    slug: youtube
-    icon: youtube.svg
-    category: social
-  
-  - name: Twitch
-    slug: twitch
-    icon: twitch.svg
-    category: social
+  - category: social
+    items:
+      - name: YouTube
+        slug: youtube
+        icon: youtube.svg
 
-  - name: GitHub
-    slug: github
-    icon: github.svg
-    category: development
+      - name: Twitch
+        slug: twitch
+        icon: twitch.svg
+
+  - category: development
+    items:
+      - name: GitHub
+        slug: github
+        icon: github.svg
