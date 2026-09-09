@@ -1,5 +1,5 @@
 links:
-  - category: social
+  - category: Social
     items:
       - name: YouTube
         slug: youtube
@@ -8,9 +8,28 @@ links:
       - name: Twitch
         slug: twitch
         icon: twitch.svg
+  
+  - category: Tools
+    items:
+      - name: Privnote
+        slug: privnote
+        icon: privnote.svg
+      - name: Json Formatter
+        slug: jsonform
+        icon: jsonform.svg
 
-  - category: development
+  - category: Development
     items:
       - name: GitHub
         slug: github
         icon: github.svg
+
+  - category: Voip
+    items:
+      - name: Q850 Cause Codes
+        slug: q850
+  
+  - category: Customization
+    items:
+      - name: Ultrawide Wallpapers
+        slug: ultrawp

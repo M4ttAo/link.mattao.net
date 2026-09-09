@@ -1,8 +1,6 @@
-{% assign icon_name = include.link.icon %}
-{% assign initial = include.link.name | slice: 0, 1 | upcase %}
+{% assign icon_name = include.link.icon | default: "default.svg" %}
 <span class="link-icon" aria-hidden="true">
-  {% if icon_name %}
-    <img src="{{ '/assets/icons/' | append: icon_name | relative_url }}" alt="" onerror="this.hidden=true; this.nextElementSibling.hidden=false;">
-  {% endif %}
-  <span class="icon-fallback"{% if icon_name %} hidden{% endif %}>{{ initial }}</span>
+  <img src="{{ '/assets/icons/' | append: icon_name | relative_url }}"
+       alt=""
+       onerror="this.onerror=null; this.src='{{ '/assets/icons/default.svg' | relative_url }}';">
 </span>

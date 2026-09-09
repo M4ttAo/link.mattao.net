@@ -6,10 +6,6 @@ description: "Links, projects & stuff."
 
 <div class="index-layout">
   <header class="intro">
-    <div class="brand-lockup">
-      <span class="brand-symbol" aria-hidden="true">M</span>
-      <span class="brand-label">{{ site.data.profile.eyebrow }}</span>
-    </div>
     <h1>{{ site.data.profile.name }}</h1>
     <p>{{ site.data.profile.bio }}</p>
     <span class="intro-line" aria-hidden="true"></span>
