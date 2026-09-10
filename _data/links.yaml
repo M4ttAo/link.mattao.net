@@ -29,6 +29,10 @@ links:
         slug: github
         icon: github.svg
 
+      - name: "FreeForDev"
+        slug: "ffd"
+        icon: "ffd.svg"
+
   - category: Voip
     items:
       - name: Q850 Cause Codes
