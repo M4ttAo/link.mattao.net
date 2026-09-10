@@ -5,13 +5,14 @@ description: "Links, projects & stuff."
 ---
 
 <div class="index-layout">
-  {% include f1-widget.html %}
 
   <header class="intro">
     <h1>{{ site.data.profile.name }}</h1>
     <p>{{ site.data.profile.bio }}</p>
     <span class="intro-line" aria-hidden="true"></span>
   </header>
+
+  {% include f1-widget.html %}
 
   <div class="links-grid">
     {% for group in site.data.links.links %}

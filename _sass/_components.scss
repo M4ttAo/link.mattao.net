@@ -52,8 +52,7 @@ h2 { margin: 0; color: var(--text); font-size: .75rem; font-weight: 700; letter-
 .sipcalc { grid-column: span 5; }
 .f1-widget { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(9rem, 1.05fr) minmax(12rem, 1.3fr) minmax(0, 2fr); align-items: center; gap: 1.5rem; min-width: 0; padding: 1rem 1.35rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--panel-gradient); box-shadow: var(--panel-shadow); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); }
 .f1-identity { display: flex; align-items: center; gap: .8rem; min-width: 0; }
-.f1-mark { display: grid; width: 2.65rem; height: 2.65rem; flex: 0 0 2.65rem; place-items: center; border-left: 2px solid var(--accent); border-radius: 8px; background: var(--accent-soft); }
-.f1-mark img { display: block; width: 2rem; height: 2rem; object-fit: contain; }
+.f1-mark { display: block; width: 2.65rem; height: 2.65rem; flex: 0 0 2.65rem; object-fit: contain; }
 .f1-identity .utility-kicker { margin-bottom: .25rem; }
 .f1-identity h2 { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .f1-event { display: grid; gap: .35rem; min-width: 0; }
