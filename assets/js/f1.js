@@ -18,10 +18,6 @@
     return { "Practice 1": "FP1", "Practice 2": "FP2", "Practice 3": "FP3", Qualifying: "Q", Race: "Gara", Sprint: "Sprint", "Sprint Qualifying": "SQ" }[name] || name;
   }
 
-  function titleCase(value) {
-    return value ? value.replace(/\b\w/g, function (letter) { return letter.toUpperCase(); }) : "";
-  }
-
   function formatDateRange(sessions) {
     var first = new Date(Math.min.apply(null, sessions.map(function (item) { return new Date(item.date_start).getTime(); })));
     var last = new Date(Math.max.apply(null, sessions.map(function (item) { return new Date(item.date_end || item.date_start).getTime(); })));
@@ -50,25 +46,35 @@
     schedule.hidden = false;
   }
 
-  function fetchSeason(year) {
-    return Promise.all([
-      fetch("https://api.openf1.org/v1/sessions?year=" + year),
-      fetch("https://api.openf1.org/v1/meetings?year=" + year)
-    ]).then(function (responses) {
-      if (!responses[0].ok || !responses[1].ok) throw new Error("Calendar unavailable");
-      return Promise.all([responses[0].json(), responses[1].json()]).then(function (data) { return { sessions: data[0], meetings: data[1] }; });
+  function fetchJson(url, retries) {
+    return fetch(url).then(function (response) {
+      if (response.status === 429 && retries > 0) {
+        return new Promise(function (resolve) { window.setTimeout(resolve, 900); }).then(function () { return fetchJson(url, retries - 1); });
+      }
+      if (!response.ok) throw new Error("Calendar unavailable");
+      return response.json();
     });
   }
 
-  Promise.all([fetchSeason(new Date().getFullYear()).catch(function () { return { sessions: [], meetings: [] }; }), fetchSeason(new Date().getFullYear() + 1).catch(function () { return { sessions: [], meetings: [] }; })]).then(function (results) {
-    var sessions = results.reduce(function (all, season) { return all.concat(season.sessions); }, []);
-    var meetings = results.reduce(function (all, season) { return all.concat(season.meetings); }, []);
+  function fetchSeason(year) {
+    return fetchJson("https://api.openf1.org/v1/sessions?year=" + year, 2).then(function (sessions) {
+      return fetchJson("https://api.openf1.org/v1/meetings?year=" + year, 2).then(function (meetings) { return { sessions: sessions, meetings: meetings }; });
+    });
+  }
+
+  function findNextRace(season) {
+    var sessions = season.sessions, meetings = season.meetings;
     var now = Date.now();
     var races = sessions.filter(function (session) { return session.session_name === "Race" && new Date(session.date_start).getTime() >= now; }).sort(function (a, b) { return new Date(a.date_start) - new Date(b.date_start); });
     if (!races.length) throw new Error("No upcoming race");
     var meeting = meetings.find(function (item) { return item.meeting_key === races[0].meeting_key; });
     if (meeting) races[0].meeting_name = meeting.meeting_name || meeting.meeting_official_name;
-    renderRace(races[0], sessions);
+    return { race: races[0], sessions: sessions };
+  }
+
+  var currentYear = new Date().getFullYear();
+  fetchSeason(currentYear).then(findNextRace).catch(function () { return fetchSeason(currentYear + 1).then(findNextRace); }).then(function (result) {
+    renderRace(result.race, result.sessions);
   }).catch(function () {
     circuit.textContent = "Calendar unavailable";
     grandPrix.textContent = "Formula 1";

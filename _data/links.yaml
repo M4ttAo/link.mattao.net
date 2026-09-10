@@ -21,28 +21,31 @@ links:
 
       - name: Coolors Co
         slug: coolors
-        icon: coolors.svg
+        icon: color.png
 
   - category: Development
     items:
       - name: GitHub
         slug: github
-        icon: github.svg
+        icon: github.jpg
 
-      - name: "FreeForDev"
+      - name: FreeForDev
         slug: "ffd"
-        icon: "ffd.svg"
+        icon: ffd.png
 
   - category: Voip
     items:
       - name: Q850 Cause Codes
         slug: q850
+        icon: q850.png
 
-      - name: "Webex DialPlan"
-        slug: "wdbc"
-        icon: "wdbc.svg"
-  
+      - name: Webex DialPlan
+        slug: wdbc
+        icon: webex.png
+
   - category: Customization
     items:
       - name: Ultrawide Wallpapers
         slug: ultrawp
+        icon: wallpaper.png
+
