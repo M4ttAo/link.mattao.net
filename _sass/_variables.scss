@@ -13,6 +13,7 @@
   --accent-soft: rgba(190, 18, 60, 0.14);
   --background-overlay: linear-gradient(115deg, rgba(5, 9, 20, .86), rgba(7, 12, 25, .58) 48%, rgba(4, 8, 17, .84));
   --background-vignette: radial-gradient(circle at 50% 38%, rgba(8, 13, 25, .18), rgba(4, 8, 17, .7) 100%);
+  --background-image: url("/assets/images/background_dark.png");
   --ambient-red: #a41343;
   --ambient-blue: #284b72;
   --panel-gradient: linear-gradient(145deg, rgba(12,17,27,.78), rgba(8,12,20,.62));
@@ -40,6 +41,7 @@
   --accent-soft: rgba(159,18,57,.09);
   --background-overlay: linear-gradient(115deg, rgba(238,241,245,.88), rgba(238,241,245,.7) 48%, rgba(230,234,241,.9));
   --background-vignette: radial-gradient(circle at 50% 38%, rgba(244,246,249,.35), rgba(225,230,238,.8) 100%);
+  --background-image: url("/assets/images/background_light.png");
   --ambient-red: #be123c;
   --ambient-blue: #557da5;
   --panel-gradient: linear-gradient(145deg, rgba(255,255,255,.78), rgba(247,249,252,.62));
