@@ -23,6 +23,10 @@ links:
         slug: coolors
         icon: color.png
 
+      - name: "SVG Logos"
+        slug: "logo"
+        icon: "logo.svg"
+
   - category: Development
     items:
       - name: GitHub
