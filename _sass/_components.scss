@@ -57,10 +57,10 @@ h2 { margin: 0; color: var(--text); font-size: .75rem; font-weight: 700; letter-
 .f1-identity h2 { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .f1-event { display: grid; gap: .35rem; min-width: 0; }
 .f1-event strong { overflow: hidden; color: var(--text); font-size: 1.1rem; letter-spacing: -.035em; text-overflow: ellipsis; white-space: nowrap; }
-.f1-event span { color: var(--accent-bright); font: .78rem var(--font-mono); letter-spacing: .06em; }
+.f1-event span { color: var(--accent-bright); font: .92rem var(--font-mono); letter-spacing: .06em; }
 .f1-schedule { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; min-width: 0; }
-.f1-day { display: flex; align-items: baseline; gap: .55rem; min-width: 9rem; color: var(--muted); font: .74rem var(--font-mono); }
-.f1-day b { color: var(--accent-bright); font-size: .62rem; }
+.f1-day { display: flex; align-items: baseline; gap: .6rem; min-width: 9rem; color: var(--muted); font: .84rem var(--font-mono); }
+.f1-day b { color: var(--accent-bright); font-size: .7rem; }
 .f1-day span { white-space: nowrap; }
 .f1-message { grid-column: 3; margin: 0; color: var(--faint); font: .65rem var(--font-mono); }
 .utility-heading { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem; }
