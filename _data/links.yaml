@@ -27,6 +27,10 @@ links:
         slug: "logo"
         icon: "logo.svg"
 
+      - name: "It Tools"
+        slug: "ittools"
+        icon: "ittools.svg"
+
   - category: Development
     items:
       - name: GitHub
