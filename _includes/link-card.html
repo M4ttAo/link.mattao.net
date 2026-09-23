@@ -1,12 +1,20 @@
+{% if include.link.url %}
+  {% assign link_destination = include.link.url %}
+  {% assign copy_destination = include.link.url %}
+{% else %}
+  {% assign link_destination = '/' | append: include.link.slug | relative_url %}
+  {% assign copy_destination = '/' | append: include.link.slug %}
+{% endif %}
+
 <div class="link-card">
-  <a class="link-card-main" href="{{ '/' | append: include.link.slug | relative_url }}">
+  <a class="link-card-main" href="{{ link_destination | escape }}">
     {% include link-icon.html link=include.link %}
     <span class="link-card-name">{{ include.link.name }}</span>
     <span class="link-arrow" aria-hidden="true">↗</span>
   </a>
   <button class="copy-shortlink" type="button"
-          data-copy-path="{{ '/' | append: include.link.slug }}"
-          aria-label="Copy shortlink for {{ include.link.name }}">
+          data-copy-path="{{ copy_destination | escape }}"
+          aria-label="Copy link for {{ include.link.name }}">
     <span class="copy-icon" aria-hidden="true">⧉</span>
     <span class="copy-label" aria-live="polite">Copy</span>
   </button>

@@ -50,7 +50,7 @@
 
       navigator.clipboard.writeText(shortUrl).then(function () {
         button.classList.add("is-copied");
-        button.setAttribute("aria-label", "Shortlink copied");
+        button.setAttribute("aria-label", "Link copied");
         label.textContent = "Copied";
         icon.textContent = "✓";
         window.setTimeout(function () {

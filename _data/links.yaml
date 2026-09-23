@@ -13,7 +13,7 @@ links:
     items:
       - name: Privnote
         slug: privnote
-        icon: privnote.svg
+        icon: privnote.png
 
       - name: Json Formatter
         slug: jsonform
@@ -41,6 +41,12 @@ links:
         slug: "ffd"
         icon: ffd.png
 
+  - category: Customization
+    items:
+      - name: Ultrawide Wallpapers
+        slug: ultrawp
+        icon: wallpaper.png
+
   - category: Voip
     items:
       - name: Q850 Cause Codes
@@ -51,9 +57,17 @@ links:
         slug: wdbc
         icon: webex.png
 
-  - category: Customization
+  - category: Oracle
     items:
-      - name: Ultrawide Wallpapers
-        slug: ultrawp
-        icon: wallpaper.png
+      - name: SBC Documentation
+        url: https://docs.oracle.com/en/industries/communications/enterprise-session-border-controller/index.html
+        icon: oracle.png
+
+      - name: EOM Documentation
+        url: https://docs.oracle.com/en/industries/communications/session-monitor/index.html
+        icon: oracle.png
+
+      - name: Esempi Integrazione
+        url: https://www.oracle.com/technical-resources/documentation/acme-packet.html
+        icon: oracle.png
 

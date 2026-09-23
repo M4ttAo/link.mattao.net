@@ -62,11 +62,24 @@ Fields:
 - `items`: links belonging to the category
 - `name`: visible link name
 - `slug`: relative shortlink path, such as `/youtube`
+- `url`: optional direct URL for links that should bypass `link.mattao.net`; use either `slug` or `url`
 - `icon`: filename loaded from `assets/icons/`
 
 Adding a category only requires adding another category block to the YAML file. The page creates its panel automatically. If a category has no name, the template falls back to `Tools`.
 
 The final redirect destinations are not stored in this repository. Redirects for `/<slug>` are managed separately in Cloudflare.
+
+Direct links can be added manually without a slug:
+
+```yaml
+- category: Tools
+  items:
+    - name: Google
+      url: https://www.google.com
+      icon: google.svg
+```
+
+The Telegram Worker continues to manage only redirect links. Its `/link` command reads the current YAML before inserting new entries, so manually added direct links are preserved.
 
 ## Icons
 
